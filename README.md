@@ -1,0 +1,14 @@
+#<a> Supervised Contrastive Learning with Corrected Labels for Noisy Label Learning -Official PyTorch Code </a> - Official PyTorch Code
+
+### Abstract:
+Deep neural networks have achieved significant success in the artificial intelligence community and various downstream tasks. They encode images or texts into dense feature representations and are supervised by a large amount of labeled data. Nevertheless, due to the expensiveness of high-quality labeled data, easy-to-access instances are collected from the Internet to conduct supervised learning. However those have not been annotated by experts, and numerous noisy instances will exist to degrade the performance of neural networks. To learn the robust feature representations against the misleading of noisy labels, we employ supervised contrastive learning to directly perform supervision in the hidden space, rather than in the prediction space like the prevalent cross-entropy loss function. However, cutting-edge noisy label learning methods with supervised contrastive learning always discard the data considered as noise, and can not tolerate high-ratio noisy datasets. Therefore, we propose a novel training strategy to defend against the attack of noisy labels, named Supervised Contrastive Learning with Corrected Labels (SCL2). First, SCL2 corrects the noisy labels with an empirical small-loss assumption and conducts supervised contrastive learning with these corrected data. We employ the generated soft labels as supervisory information to facilitate our implementation of supervised contrastive learning. In this approach, samples sharing the same soft labels are treated as positive sample pairs, while those with different soft labels are considered negative sample pairs. This expansion of contrastive learning ensures the integrity of the supervisory information while effectively enhancing the learning process. With the help of this strategy, the representations from neural networks will keep the local discrimination in one mini-batch. Then, we also employ a prototype contrastive learning technique to ensure global discrimination. Our SCL2 has demonstrated excellent performance on numerous benchmark datasets, showcasing its effectiveness in various standardized evaluation scenarios. Additionally, our model has proven to be highly valuable when applied to real-world noisy datasets.
+
+### Requirements:
+* Python 3.8.13
+* Pytorch 1.13.1 (torchvision 0.14.0)
+* Numpy 1.23.1
+
+### Running the code on CIFAR-10/100:
+We provide the code used to simulate CIFAR-10/100 datasets with symmetric and asymmetric label noise.
+
+The dataset has to be placed in dataset folder (should be done automatically). The training has one stages: run this file train_cifar.py to get the result. During training, the results can be obtained in the log file in out folder.# SCL2
